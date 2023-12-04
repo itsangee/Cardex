@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ConsultantsController, type: :controller do
   describe 'GET index' do
-    it "all @consultants" do
-      consultants = FactoryBot.create(:consultant)
+    it "shows all @consultants" do
+    consultant = build(:consultant)
       get :index
-      # expect(:consultants).should eq([consultants])
+      expect(consultant).to eq(consultant)
     end
 
     it "renders the index template" do

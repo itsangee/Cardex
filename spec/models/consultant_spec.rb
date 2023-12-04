@@ -8,6 +8,7 @@ RSpec.describe Consultant, type: :model do
   end
 
   it "is not valid without a first name and last name" do
+    consultant = build(:consultant)
     consultant.first_name = nil
     consultant.last_name = nil
     expect(consultant).to_not be_valid
