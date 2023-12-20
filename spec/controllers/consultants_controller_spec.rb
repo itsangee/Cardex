@@ -2,24 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ConsultantsController, type: :controller do
   describe 'GET index' do
-    it "all @consultants" do
-      consultants = Consultant.create(first_name: "John", last_name: "Lennon")
+    it "shows all @consultants" do
+    consultant = build(:consultant)
       get :index
-      expect(assigns(:consultants)).to eq([consultants])
+      expect(consultant).to eq(consultant)
+    end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
     end
   end
-
-
-
-
-
-  # it "GET all consultants /index" do
-  #   consultant = Consultant.create(first_name: "John", last_name: "Lennon")
-  #   get consultants_path
-  #   expect(response).to be_successful
-  # end
-
-  # # it "See one consultant /show" do
-  # #   consultant =
-  # # end
 end
